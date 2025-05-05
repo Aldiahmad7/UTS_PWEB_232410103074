@@ -4,8 +4,8 @@
             <div class="flex items-center space-x-4">
                 <p class="text-blue-400 font-bold text-xl">Rhapsody.</p>
 
-                @if(request('username'))
-                    <span class="text-sm text-gray-300">Halo, <span class="font-semibold text-blue-400">{{ request('username') }}</span></span>
+                @if(request()->has('username'))
+                    <span class="text-sm text-gray-300 mr-4">Halo, {{ request()->get('username') }}</span>
                 @endif
             </div>
 

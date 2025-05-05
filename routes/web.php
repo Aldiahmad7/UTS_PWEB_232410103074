@@ -1,11 +1,12 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'login'])->name('login');
 
-Route::get('/proses-login', function (Illuminate\Http\Request $request) {
+Route::post('/proses-login', function (Request $request) {
     $username = $request->input('username');
     $password = $request->input('password');
 
@@ -14,7 +15,7 @@ Route::get('/proses-login', function (Illuminate\Http\Request $request) {
     ];
 
     if (isset($validUsers[$username]) && $validUsers[$username] === $password) {
-        return redirect('/dashboard?username=' . $username);
+        return redirect('/dashboard?username=' . urlencode($username));
     }
 
     return redirect()->route('login')->with('error', 'Username atau password salah');

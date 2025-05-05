@@ -1,7 +1,7 @@
-<!-- resources/views/components/card.blade.php -->
 <div class="max-w-md w-full bg-gray-800 p-8 rounded-xl shadow-xl">
     <h2 class="text-2xl font-bold text-center mb-8 text-white">Rhapsody.</h2>
-    <form method="GET" action="{{ route('dashboard') }}">
+    <form method="POST" action="{{ route('login.proses') }}">
+        @csrf
         <div class="mb-6">
             <label for="username" class="block text-sm font-medium text-gray-300 mb-2">Username</label>
             <input type="text" id="username" name="username" required

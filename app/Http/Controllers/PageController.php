@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class PageController extends Controller
 {
     public function login()
@@ -9,18 +11,33 @@ class PageController extends Controller
         return view('login');
     }
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
-        return view('dashboard');
+        if (!$request->has('username')) {
+            return redirect()->route('login');
+        }
+
+        $username = $request->query('username');
+        return view('dashboard', compact('username'));
     }
 
-    public function pengelolaan()
+    public function pengelolaan(Request $request)
     {
-        return view('pengelolaan');
+        if (!$request->has('username')) {
+            return redirect()->route('login');
+        }
+
+        $username = $request->query('username');
+        return view('pengelolaan', compact('username'));
     }
 
-    public function profile()
+    public function profile(Request $request)
     {
-        return view('profile');
+        if (!$request->has('username')) {
+            return redirect()->route('login');
+        }
+
+        $username = $request->query('username');
+        return view('profile', compact('username'));
     }
 }
