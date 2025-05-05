@@ -3,10 +3,6 @@
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center space-x-4">
                 <p class="text-blue-400 font-bold text-xl">Rhapsody.</p>
-
-                @if(request()->has('username'))
-                    <span class="text-sm text-gray-300 mr-4">Halo, {{ request()->get('username') }}</span>
-                @endif
             </div>
 
             <div class="hidden md:block">
