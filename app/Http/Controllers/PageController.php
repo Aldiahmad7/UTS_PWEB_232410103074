@@ -20,7 +20,7 @@ class PageController extends Controller
     public function dashboard(Request $request)
     {
         $username = $request->query('username');
-        return view('dashboard', compact('username'));
+        return view('dashboard', ['username' => $username]);
     }
 
     public function pengelolaan(Request $request)
@@ -107,6 +107,6 @@ class PageController extends Controller
     public function profile(Request $request)
     {
         $username = $request->query('username');
-        return view('profile', compact('username'));
+        return view('profile', ['username' => $username]);
     }
 }

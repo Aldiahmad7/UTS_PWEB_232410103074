@@ -8,22 +8,23 @@
             </div>
 
             <div class="p-6 sm:p-8">
-                @if(request()->has('username'))
+                @if(isset($username))
                     <div class="flex flex-col items-center">
-                        <!-- Avatar berbentuk persegi dengan sudut membulat -->
                         <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-md bg-indigo-100 flex items-center justify-center mb-6 border border-indigo-50 shadow-md">
-                            <span class="text-3xl sm:text-4xl font-medium text-indigo-700">{{ strtoupper(substr(request()->get('username'), 0, 1)) }}</span>
+                            <span class="text-3xl sm:text-4xl font-medium text-indigo-700">
+                                {{ strtoupper(substr($username, 0, 1)) }}
+                            </span>
                         </div>
 
                         <div class="text-center w-full">
-                            <h3 class="text-xl sm:text-2xl font-medium text-gray-900">{{ request()->get('username') }}</h3>
+                            <h3 class="text-xl sm:text-2xl font-medium text-gray-900">{{ $username }}</h3>
                             <p class="text-md sm:text-lg text-gray-500 mt-2 mb-6">Anggota Perpustakaan</p>
 
                             <div class="mt-4 sm:mt-6">
                                 <div class="bg-gray-50 rounded-md p-4 sm:p-6 text-sm sm:text-base border border-gray-100">
                                     <div class="mb-3">
                                         <span class="font-medium text-gray-700">Email:</span>
-                                        <span class="text-gray-600 ml-2">{{ strtolower(request()->get('username')) }}@gmail.com</span>
+                                        <span class="text-gray-600 ml-2">{{ strtolower($username) }}@gmail.com</span>
                                     </div>
                                 </div>
                             </div>
