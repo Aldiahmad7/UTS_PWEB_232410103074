@@ -27,11 +27,32 @@
 
             <!-- Mobile menu button -->
             <div class="md:hidden">
-                <button class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none" aria-label="Toggle menu">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+                <a href="{{ url('/dashboard') . '?username=' . request('username') }}"
+                   class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-200
+                         {{ request()->is('dashboard*') || (!request()->is('pengelolaan*') && !request()->is('profile*')) ? 'bg-blue-100 text-blue-600 font-semibold' : '' }}">
+                   Dashboard
+                </a>
+                <a href="{{ url('/pengelolaan') . '?username=' . request('username') }}"
+                   class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-200
+                         {{ request()->is('pengelolaan*') ? 'bg-blue-100 text-blue-600 font-semibold' : '' }}">
+                   Pengelolaan
+                </a>
+                <a href="{{ url('/profile') . '?username=' . request('username') }}"
+                   class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-200
+                         {{ request()->is('profile*') ? 'bg-blue-100 text-blue-600 font-semibold' : '' }}">
+                   Profile
+                </a>
             </div>
         </div>
     </div>
